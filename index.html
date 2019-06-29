@@ -144,9 +144,11 @@ function moveEverything(){
 		}
 	}
 	if(ballY<0){
+		mySound.play();
 		ballSpeedY = -ballSpeedY;
 	}
 	if(ballY>canvas.height){
+		mySound.play();
 		ballSpeedY = -ballSpeedY;
 	}
 }
