@@ -51,8 +51,11 @@ const PADDLE_HEIGHT = 100;
 const PADDLE_THICKNESS = 10;
 const WINNING_SCORE = 3;
 var mySound;
+var mySound2;	  
 	  
-mySound = new sound("bounce.wav");	  
+	  
+mySound = new sound("bounce.wav");
+mySound2 = new sound("lose.wav");
 	  
 /******************************************************************************
 **************************FINDING MOUSE POSITIONS******************************
@@ -144,11 +147,10 @@ function moveEverything(){
 		}
 	}
 	if(ballY<0){
-		mySound.play();
 		ballSpeedY = -ballSpeedY;
 	}
 	if(ballY>canvas.height){
-		mySound.play();
+
 		ballSpeedY = -ballSpeedY;
 	}
 }
@@ -166,7 +168,8 @@ function drawEverything() {
 	//black screen
   colorRect(0, 0, canvas.width, canvas.height, 'black');
 	if(showingWinScreen){
-		if(score1 >= 3){	
+		if(score1 >= 3){
+		mySound2.play();
 		canvasContext.fillStyle = 'green';
 		canvasContext.font = "40px Arial";
 		canvasContext.fillText("Another win on the books,", 100, 200);
