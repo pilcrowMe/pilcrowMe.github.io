@@ -56,7 +56,7 @@ var mySound2;
 	  
 mySound = new sound("bounce.wav");
 mySound2 = new sound("lose.wav");
-mySound3 = new sound("gameSound.wav");
+
 	  
 /******************************************************************************
 **************************FINDING MOUSE POSITIONS******************************
@@ -118,7 +118,6 @@ function moveEverything(){
 	if(showingWinScreen){
 		return;
 	}
-	mySound3.play();
 	computerMovement();
 	ballX += ballSpeedX;
 	ballY += ballSpeedY;
