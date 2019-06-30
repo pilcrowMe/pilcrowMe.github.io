@@ -2,6 +2,7 @@
 <html>
 <head>
   <title> It's a ma webpage </title>
+  <link rel="stylesheet" href="styles.css">
   <style>   
         body {
             background-color: grey;
@@ -12,6 +13,20 @@
 </head>  
 <body>
 	<canvas id="gameCanvas" width= "800" height="600"></canvas>
+	<div id='cssmenu'>
+<ul>
+   <li><a href='#'><span>Home</span></a></li>
+   <li class='active has-sub'><a href='#'><span>Games</span></a>
+      <ul>
+         <li class='has-sub'><a href='Game1.html'><span>Game 1</span></a>
+         </li>
+         <li class='has-sub'><a href='#'><span>Game 2</span></a>
+         </li>
+      </ul>
+   </li>
+   <li><a href='#'><span>About</span></a></li>
+</ul>
+</div>
 </body>
   <script>
 
