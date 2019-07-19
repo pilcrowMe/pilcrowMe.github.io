@@ -6,13 +6,92 @@
   </head>
   <body>
   <script type="text/processing" data-processing-target="processing-canvas">
+
   void setup() {
-    size(200, 200);
+    size(500, 500);
     background(100);
-    stroke(255);
-    ellipse(50, 50, 25, 25);
-    println('hello web!');
   }
+
+  var objectX = 50;
+  var objectY = 370;
+  var objectSize = 20;
+  var test = false;
+  var speed = 3;
+
+  //object varialbes
+  var Platform = function(x, y, w, h){
+      this.xAxis = x;
+      this.yAxis = y;
+      this.width = w;
+      this.height = h;
+    };
+
+  //create platform space
+  var plat1 = new Platform(199, 200, 181, 18);
+  var plat2 = new Platform(132, 296, 181, 18);
+  var plat3 = new Platform(126, 114, 181, 18);
+
+  var movement = function(){
+      if(keyIsPressed && keyCode === UP){
+      objectY-= speed;
+      }
+        if(keyIsPressed && keyCode === DOWN){
+      objectY+= speed;
+      }
+        if(keyIsPressed && keyCode === RIGHT){
+      objectX+= speed;
+      }
+        if(keyIsPressed && keyCode === LEFT){
+      objectX-= speed;
+      }
+      if(objectX > plat1.xAxis-objectSize && objectX < (plat1.xAxis + plat1.width) &&
+          objectY > plat1.yAxis-plat1.height && objectY < plat1.yAxis+plat1.height){
+           test = true;
+           objectY +=20;
+      }
+       if(objectX > plat2.xAxis-objectSize && objectX < (plat2.xAxis + plat2.width) &&
+          objectY > plat2.yAxis-plat2.height && objectY < plat2.yAxis+plat2.height){
+            test = true;
+            objectY +=20;
+
+      }
+       if(objectX > plat3.xAxis-objectSize && objectX < (plat3.xAxis + plat3.width) &&
+          objectY > plat3.yAxis-plat3.height && objectY < plat3.yAxis+plat3.height){
+           test = true;
+           objectY +=20;
+
+      }
+  };
+
+
+  //animations
+  draw = function() {
+      movement();
+      background(235, 235, 235);
+      //x y width height
+      rect(plat1.xAxis, plat1.yAxis, plat1.width, plat1.height);
+      fill(255, 0, 0);
+      rect(plat2.xAxis, plat2.yAxis, plat2.width, plat2.height);
+      fill(117, 117, 117);
+      rect(plat3.xAxis, plat3.yAxis, plat3.width, plat3.height);
+      //object
+      fill(0, 0, 0);
+      if(test){
+       speed = 0;
+      } else if(!test){
+      fill(0, 0, 0);
+      }
+      rect(objectX, objectY, objectSize, objectSize);
+
+      text("object Y: " + objectY + "   plat1.yAxis: " + plat1.yAxis+ "   plat1.yAxis: " +
+       plat1.width, 72, 100);
+
+  };
+
+
+
+
+ </script>
  </script>
  <canvas id="processing-canvas"> </canvas>
  </body>
